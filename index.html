@@ -4,6 +4,9 @@
 :root{--bg:#f7fbff;--card:#fff;--ink:#243044;--muted:#64748b;--main:#4aa3df;--sub:#7bd6c5;--accent:#ffbf69;--danger:#ff6b6b;--ok:#2ec4b6;--line:#dce8f5;--shadow:0 18px 45px rgba(40,80,120,.12)}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top left,#e4f9ff,transparent 35%),linear-gradient(135deg,#f7fbff,#fff8ed);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","Noto Sans JP",sans-serif}.app{max-width:1180px;margin:auto;padding:22px}.hero{display:grid;grid-template-columns:1.35fr .65fr;gap:18px}.panel,.card{background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow)}.panel{padding:28px;position:relative;overflow:hidden}.badge{display:inline-flex;gap:8px;align-items:center;background:#eef8ff;border:1px solid #cfefff;color:#2877aa;padding:8px 12px;border-radius:999px;font-weight:900;font-size:13px}h1{font-size:clamp(34px,5vw,64px);letter-spacing:-.05em;line-height:1;margin:14px 0 10px}.lead{font-size:17px;color:var(--muted);line-height:1.75}.grid{display:grid;grid-template-columns:270px 1fr;gap:18px;margin-top:18px}.nav{padding:14px;position:sticky;top:14px;align-self:start}.nav button,.btn{border:0;background:#fff;color:var(--ink);border-radius:18px;padding:14px 16px;font-weight:900;cursor:pointer;box-shadow:0 6px 16px rgba(30,80,120,.08);transition:.15s}.nav button{width:100%;text-align:left;margin:5px 0}.nav button.active,.btn.primary{background:linear-gradient(135deg,var(--main),var(--sub));color:white}.btn.ghost{background:#eef5fb}.btn.warn{background:#fff1e1;color:#985d00}.btn.danger{background:#ffe9e9;color:#b83232}.btn:hover,.nav button:hover,.choice:hover,.quest:hover{transform:translateY(-1px)}.section{display:none}.section.active{display:block}.card{padding:22px;margin-bottom:18px}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stat{background:#fff;border:1px solid var(--line);border-radius:22px;padding:16px}.num{font-size:32px;font-weight:900}.muted{color:var(--muted)}.meter{height:13px;background:#e9f1f8;border-radius:999px;overflow:hidden}.meter span{display:block;height:100%;background:linear-gradient(90deg,var(--main),var(--sub));width:0%}.questList,.printGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:12px}.quest{border:1px solid var(--line);border-radius:22px;padding:16px;background:#fff;cursor:pointer;transition:.15s}.quest:hover{outline:3px solid #d9f5ff}.stars{color:#ffb703;font-weight:900;letter-spacing:1px}.tag{display:inline-block;background:#f0f7ff;border:1px solid #d8edff;border-radius:999px;padding:4px 9px;font-size:12px;font-weight:900;color:#43789a}.problem{font-size:20px;line-height:1.8;background:#fff;border:1px solid var(--line);border-radius:24px;padding:22px;min-height:140px;white-space:pre-wrap}.feedback{padding:14px;border-radius:18px;margin-top:10px;font-weight:800}.ok{background:#e8fff9;color:#087b6c}.ng{background:#fff0f0;color:#b22}.hint{background:#fff9e8;border:1px dashed #ffd166;color:#8a5b00;padding:14px;border-radius:18px;line-height:1.6}.blank{display:inline-block;min-width:110px;border-bottom:3px solid var(--main);background:#eff9ff;border-radius:8px;padding:0 8px;text-align:center}.choice{display:block;width:100%;margin:7px 0;padding:13px 14px;background:#fff;border:2px solid #dbe9f5;border-radius:16px;font-weight:900;cursor:pointer;text-align:left}.choice.correct{border-color:var(--ok);background:#edfff9}.choice.wrong{border-color:var(--danger);background:#fff1f1}details{background:#f8fbff;border:1px solid var(--line);border-radius:18px;padding:12px 16px;margin-top:10px}summary{font-weight:900;cursor:pointer}textarea{width:100%;min-height:90px;border:2px solid #dbe9f5;border-radius:18px;padding:14px;font-size:16px}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 16px}.mini{font-size:13px}.select{padding:12px;border-radius:15px;border:1px solid var(--line);font-weight:800;background:white}.progressLine{display:grid;grid-template-columns:130px 1fr 50px;gap:10px;align-items:center;margin:10px 0}@media(max-width:860px){.hero,.grid{grid-template-columns:1fr}.nav{position:static}.stats{grid-template-columns:repeat(2,1fr)}.progressLine{grid-template-columns:1fr}}
 
 .printReader{display:grid;gap:14px}.printBlock{background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px}.printBlock h3{margin:.2rem 0 .6rem}.printLine{padding:12px 10px;border-top:1px solid #edf3f8;line-height:1.9}.printLine:first-of-type{border-top:0}.revealBlank{display:inline-flex;align-items:center;justify-content:center;min-width:116px;min-height:34px;margin:0 3px;padding:2px 12px;border:2px dashed var(--main);border-radius:999px;background:#eef9ff;color:#2877aa;font-weight:900;cursor:pointer;vertical-align:middle}.revealBlank.shown{border-style:solid;background:linear-gradient(135deg,#e8fff9,#fff);color:#0f766e}.printTools{position:sticky;top:10px;z-index:5;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:20px;padding:12px;margin-bottom:14px}.printNote{background:#f8fbff;border:1px solid var(--line);border-radius:18px;padding:12px 14px;line-height:1.7}.jumpList{display:flex;gap:8px;flex-wrap:wrap}
+
+.printSheet{background:#fff;border:1px solid #d8e6f5;border-radius:24px;padding:24px;margin:16px 0;box-shadow:0 10px 28px rgba(45,80,120,.08)}
+.printSheet h2{font-size:28px;margin:0 0 8px;border-left:8px solid var(--main);padding-left:12px}.printSheet h3{font-size:22px;margin:24px 0 10px;padding:10px 14px;background:linear-gradient(90deg,#eff9ff,#fff);border-radius:14px}.printSheet h4{margin:18px 0 8px;color:#255f86}.goalBox{border:2px solid #dbeaf6;border-radius:16px;padding:12px 16px;background:#fbfdff;line-height:1.8;margin:12px 0}.worksheetLine{font-size:18px;line-height:2.05;margin:8px 0;padding:8px 10px;border-bottom:1px dashed #e3edf8}.worksheetLine .tag{margin-right:8px}.revealBlank{appearance:none;border:0;border-bottom:3px solid var(--main);background:#eff9ff;color:#2374a5;border-radius:8px;min-width:104px;padding:4px 10px;font-weight:900;cursor:pointer;font-size:16px}.revealBlank.shown{background:#e8fff9;color:#087b6c;border-bottom-color:var(--ok)}.printLead{font-size:16px;color:var(--muted);line-height:1.9}.exampleBox{background:#fffaf0;border:1px solid #ffe1a3;border-radius:16px;padding:12px 16px;margin:10px 0;line-height:1.8}.smallNote{font-size:13px;color:var(--muted)}
 </style></head><body><div class="app"><div class="hero"><div class="panel"><span class="badge">🧪 Quest系 自学アプリ｜全プリント導入版</span><h1>ChemQuest<br>酸・塩基・中和</h1><p class="lead">授業プリント46ページの空欄・練習・発展内容を、提出なしの自学Questに変換。問題演習は各問ごとに選択肢を作成済み。</p><div class="row"><button class="btn primary" onclick="go('print')">授業プリント</button><button class="btn ghost" onclick="go('quest')">問題演習</button><button class="btn ghost" onclick="go('record')">学習記録</button></div></div><div class="panel"><h2>達成度</h2><div class="num" id="topRate">0%</div><div class="meter"><span id="topMeter"></span></div><p class="muted">記録はこの端末に保存。授業プリント欄は教員提出なし。</p><div class="row"><button class="btn warn" onclick="exportCSV()">CSV出力</button><button class="btn danger" onclick="resetAll()">リセット</button></div></div></div><div class="grid"><nav class="nav card" id="nav"></nav><main><section id="home" class="section active"></section><section id="print" class="section"></section><section id="quest" class="section"></section><section id="mistakes" class="section"></section><section id="reflect" class="section"></section><section id="record" class="section"></section></main></div></div>
 <script>
 const units={"acid": {"label": "酸・塩基", "desc": "性質・定義・価数・強弱・電離平衡"}, "ph": {"label": "水の電離・pH", "desc": "Kw・[H+]・[OH−]・pH計算"}, "neutral": {"label": "中和・滴定", "desc": "中和反応・量的関係・器具・曲線"}, "salt": {"label": "塩", "desc": "塩の分類・加水分解・弱酸弱塩基の遊離"}, "advanced": {"label": "発展・総合", "desc": "二段滴定・逆滴定・環境問題"}};
@@ -23,22 +26,52 @@ function renderHeader(){let total=allItems().length,done=Object.keys(state.done)
 function unitMeter(k){let items=allItems().filter(x=>x.unit===k),d=items.filter(x=>state.done[x.id]).length,r=items.length?Math.round(d/items.length*100):0;return `<div class="progressLine"><b>${units[k].label}</b><div class="meter"><span style="width:${r}%"></span></div><span>${r}%</span></div>`}
 function avgLevel(arr){return arr.length?arr.reduce((a,b)=>a+b.level,0)/arr.length:1}
 function renderHome(){home.innerHTML=`<div class="card"><h2>今日のミッション</h2><div class="questList"><div class="quest" onclick="startPrint('all')"><b>授業プリント穴埋め 全部</b><p class="muted">46ページ分の主要空欄・確認事項。</p><span class="tag">${cloze.length}問</span></div><div class="quest" onclick="startProblems('all')"><b>問題演習 全問</b><p class="muted">プリント内練習＋13・14の演習。</p><span class="tag">${problems.length}問</span></div><div class="quest" onclick="go('mistakes')"><b>間違い直し</b><p class="muted">苦手だけ再挑戦。</p><span class="tag">復習</span></div></div></div><div class="card"><h2>単元メーター</h2>${Object.keys(units).map(unitMeter).join('')}</div>`;}
+
+const printUnitInfo={
+  acid:{title:'1　酸・塩基　教 p.134〜141',goals:['塩化水素や硫酸，アンモニアや水酸化ナトリウムに共通する性質を理解する。','酸・塩基の定義と分類を理解する。'],lead:'酸性・塩基性の性質から入り，アレーニウスの定義，ブレンステッド・ローリーの定義，価数，強弱までを整理する。'},
+  ph:{title:'2　水の電離と水溶液のpH　教 p.142〜147',goals:['H+とOH−の間にどのような関係があるか理解する。','水溶液の酸性や塩基性の強さを表す方法を知る。'],lead:'水の電離，水のイオン積，pHの求め方を，式と意味を結びつけて学習する。'},
+  neutral:{title:'3　中和反応　教 p.148〜156',goals:['酸と塩基が反応し，お互いの性質を打ち消す反応を理解する。','中和の量的関係，中和滴定，器具の扱いを理解する。'],lead:'H+とOH−の物質量が等しくなることを軸に，反応式と計算をつなげる。'},
+  salt:{title:'4　塩　教 p.157〜159',goals:['塩の分類と水溶液の性質を理解する。','加水分解や弱酸・弱塩基の遊離を理解する。'],lead:'酸と塩基の反応後にできる塩を，化学式中に残るHやOH，水溶液の性質から整理する。'},
+  advanced:{title:'発展　滴定・環境',goals:['二段滴定，逆滴定，酸性雨などを発展内容として確認する。'],lead:'基礎を使って，より複雑な滴定や身近な現象を考える。'}
+};
 function renderPrint(){
   const sec=document.getElementById('print');
   const revealed=Object.keys(state.revealed||{}).length;
-  const unitButtons=Object.keys(units).map(k=>`<button class="btn ghost mini" onclick="scrollToPrintUnit('${k}')">${units[k].label}</button>`).join('');
-  const blocks=Object.keys(units).map(k=>{
-    const items=cloze.filter(x=>x.unit===k);
-    const bySection={};
-    items.forEach(it=>{(bySection[it.section]||(bySection[it.section]=[])).push(it)});
-    const inner=Object.keys(bySection).map(secName=>`<div class="printBlock"><h3>${esc(secName)}</h3>${bySection[secName].map(renderPrintLine).join('')}</div>`).join('');
-    return `<div id="printUnit_${k}" class="card"><div class="row" style="justify-content:space-between"><div><h2>${units[k].label}</h2><p class="muted">${units[k].desc}｜穴埋めをクリックすると答えが出ます。</p></div><button class="btn ghost" onclick="startPrint('${k}')">この範囲を4択Quest</button></div><div class="printReader">${inner}</div></div>`;
-  }).join('');
-  sec.innerHTML=`<div class="card"><h2>授業プリント</h2><p class="printNote">PDF画像ではなく、プリントの穴埋め内容をアプリ内テキストに再構成しました。青い空欄をクリックすると答えが表示されます。図は必要な部分のみ文章化しています。</p><div class="printTools"><div class="row"><button class="btn primary" onclick="showAllPrintAnswers()">答えを全部表示</button><button class="btn ghost" onclick="hideAllPrintAnswers()">答えを全部隠す</button><button class="btn warn" onclick="startPrint('all')">全範囲を4択Quest</button></div><div class="jumpList" style="margin-top:10px">${unitButtons}</div><p class="muted mini">表示済み：<span id="revealedCount">${revealed}</span> / ${cloze.length}</p></div></div>${blocks}`;
+  const unitKeys=Object.keys(units).filter(k=>cloze.some(x=>x.unit===k));
+  const unitButtons=unitKeys.map(k=>`<button class="btn ghost mini" onclick="scrollToPrintUnit('${k}')">${units[k].label}</button>`).join('');
+  const sheets=unitKeys.map(k=>renderPrintSheet(k)).join('');
+  sec.innerHTML=`<div class="card"><h2>授業プリント</h2><p class="printNote">プリントをPDF画像ではなく，本文形式で再構成しました。文章を読みながら，青い空欄をクリックすると答えが表示されます。提出なしの自学用です。</p><div class="row"><button class="btn primary" onclick="showAllPrintAnswers()">答えを全部表示</button><button class="btn ghost" onclick="hideAllPrintAnswers()">答えを全部隠す</button><button class="btn warn" onclick="startPrint('all')">全範囲を4択Quest</button></div><div class="jumpList" style="margin-top:10px">${unitButtons}</div><p class="muted mini">表示済み：<span id="revealedCount">${revealed}</span> / ${cloze.length}</p></div><div id="playPrint"></div>${sheets}`;
+}
+function renderPrintSheet(k){
+  const info=printUnitInfo[k]||{title:units[k].label,goals:[],lead:units[k].desc};
+  const items=cloze.filter(x=>x.unit===k);
+  const bySection={};
+  items.forEach(it=>{(bySection[it.section]||(bySection[it.section]=[])).push(it)});
+  const sections=Object.keys(bySection).map(secName=>`<h3>${esc(secName)}</h3>${sectionLead(secName)}${bySection[secName].map(renderPrintLine).join('')}`).join('');
+  return `<article id="printUnit_${k}" class="printSheet"><h2>${esc(info.title)}</h2><p class="printLead">${esc(info.lead)}</p><div class="goalBox"><b>〇単元の目標</b>${info.goals.map((g,i)=>`<br>${i+1}　${esc(g)}`).join('')}</div><div class="row"><button class="btn ghost" onclick="startPrint('${k}')">この範囲を4択Quest</button><span class="tag">${items.length}項目</span></div>${sections}</article>`;
+}
+function sectionLead(name){
+  const map={
+    '1 酸・塩基':'<p class="printLead">酸性・塩基性の性質を，リトマス紙，金属との反応，例となる物質から確認する。</p>',
+    'アレーニウスの定義':'<p class="printLead">水溶液中で生じるイオンに注目して，酸と塩基を定義する。</p>',
+    'ブレンステッド・ローリー':'<p class="printLead">水素イオンH+の授受に注目して，酸と塩基を考える。</p>',
+    '酸・塩基の価数':'<p class="printLead">酸はH+になれるHの数，塩基は生じるOH−または受け取れるH+の数で価数を考える。</p>',
+    '酸・塩基の強弱':'<p class="printLead">強弱は電離度で判断する。価数の大小とは無関係である。</p>',
+    '水の電離':'<p class="printLead">純水もごくわずかに電離しており，25℃では[H+]と[OH−]が等しい。</p>',
+    '水のイオン積':'<p class="printLead">[H+][OH−]は一定温度で一定となり，25℃では1.0×10^-14である。</p>',
+    'pH':'<p class="printLead">水素イオン濃度を見やすく表した数値がpHである。</p>',
+    '中和反応':'<p class="printLead">酸のH+と塩基のOH−が結びつき，水ができる反応を中和という。</p>',
+    '中和の量的関係':'<p class="printLead">過不足なく中和するとき，酸から生じるH+の物質量と塩基から生じるOH−の物質量が等しい。</p>',
+    '塩の分類':'<p class="printLead">塩は，化学式中に酸のHや塩基のOHが残っているかどうかで分類する。</p>'
+  };
+  return map[name]||'';
 }
 function renderPrintLine(it){
-  const q=esc(it.q).replace(/（\s*　?\s*）|\(\s*\)/,`<button class="revealBlank" data-id="${it.id}" onclick="revealPrintAnswer('${it.id}',this)">クリック</button>`);
-  return `<div class="printLine"><span class="tag">${it.id}</span> <span class="stars">${stars(it.level)}</span> <span>${q}</span>${it.hint?`<details><summary>ヒント</summary>${esc(it.hint)}</details>`:''}</div>`;
+  let txt=esc(it.q);
+  const blank=`<button class="revealBlank" data-id="${it.id}" onclick="revealPrintAnswer('${it.id}',this)">　　　</button>`;
+  txt=txt.replace(/（\s*　?\s*）|\(\s*\)/,`（${blank}）`);
+  if(txt.indexOf('revealBlank')<0){txt += `　${blank}`;}
+  return `<p class="worksheetLine"><span class="tag">${it.id}</span><span class="stars">${stars(it.level)}</span>　${txt}${it.hint?`<details><summary>ヒント</summary>${esc(it.hint)}</details>`:''}</p>`;
 }
 function revealPrintAnswer(id,el){
   const item=cloze.find(x=>x.id===id); if(!item)return;
@@ -47,7 +80,7 @@ function revealPrintAnswer(id,el){
   const c=document.getElementById('revealedCount'); if(c)c.textContent=Object.keys(state.revealed).length;
 }
 function showAllPrintAnswers(){document.querySelectorAll('.revealBlank').forEach(el=>revealPrintAnswer(el.dataset.id,el));}
-function hideAllPrintAnswers(){document.querySelectorAll('.revealBlank').forEach(el=>{el.textContent='クリック';el.classList.remove('shown')});}
+function hideAllPrintAnswers(){document.querySelectorAll('.revealBlank').forEach(el=>{el.textContent='　　　';el.classList.remove('shown')}); state.revealed={}; save(); const c=document.getElementById('revealedCount'); if(c)c.textContent=0;}
 function scrollToPrintUnit(k){document.getElementById('printUnit_'+k)?.scrollIntoView({behavior:'smooth',block:'start'});}
 function renderQuest(){let grouped=Object.keys(units).map(k=>`<button class="btn ghost" onclick="startProblems('${k}')">${units[k].label} ${problems.filter(x=>x.unit===k).length}問</button>`).join('');quest.innerHTML=`<div class="card"><h2>問題演習Quest</h2><p class="muted">問題はすべて選択問題。各問ごとに選択肢を作成。</p><div class="tabs"><button class="btn primary" onclick="startProblems('all')">全部</button>${grouped}</div><div id="playQuest"></div></div>`;}
 function startPrint(unit){mode='print';current=shuffle(cloze.filter(x=>unit==='all'||x.unit===unit));idx=0;go('print');show();}
