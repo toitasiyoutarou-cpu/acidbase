@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>ChemQuest｜酸・塩基・中和</title>
+<style>
+:root{--bg:#f7fbff;--card:#fff;--ink:#243044;--muted:#6b7890;--main:#4aa3df;--sub:#7bd6c5;--accent:#ffbf69;--danger:#ff6b6b;--ok:#2ec4b6;--line:#dce8f5;--shadow:0 18px 45px rgba(40,80,120,.12)}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top left,#e4f9ff,transparent 35%),linear-gradient(135deg,#f7fbff,#fff8ed);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","Noto Sans JP",sans-serif}.app{max-width:1180px;margin:auto;padding:22px}.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:18px;align-items:stretch}.panel,.card{background:rgba(255,255,255,.86);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow)}.panel{padding:28px;position:relative;overflow:hidden}.panel:after{content:"";position:absolute;right:-55px;top:-55px;width:180px;height:180px;border-radius:50%;background:linear-gradient(135deg,var(--main),var(--sub));opacity:.16}.badge{display:inline-flex;gap:8px;align-items:center;background:#eef8ff;border:1px solid #cfefff;color:#2877aa;padding:8px 12px;border-radius:999px;font-weight:800;font-size:13px}h1{font-size:clamp(34px,5vw,64px);letter-spacing:-.05em;line-height:1;margin:14px 0 10px}.lead{font-size:17px;color:var(--muted);line-height:1.75}.grid{display:grid;grid-template-columns:270px 1fr;gap:18px;margin-top:18px}.nav{padding:14px;position:sticky;top:14px;align-self:start}.nav button,.btn{border:0;background:#fff;color:var(--ink);border-radius:18px;padding:14px 16px;font-weight:800;cursor:pointer;box-shadow:0 6px 16px rgba(30,80,120,.08);transition:.15s;white-space:nowrap}.nav button{width:100%;text-align:left;margin:5px 0}.nav button.active,.btn.primary{background:linear-gradient(135deg,var(--main),var(--sub));color:white}.btn.ghost{background:#eef5fb}.btn.warn{background:#fff1e1;color:#985d00}.btn.danger{background:#ffe9e9;color:#b83232}.btn:hover,.nav button:hover{transform:translateY(-1px)}.content{min-height:680px}.section{display:none}.section.active{display:block}.card{padding:22px;margin-bottom:18px}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stat{background:#fff;border:1px solid var(--line);border-radius:22px;padding:16px}.num{font-size:32px;font-weight:900}.muted{color:var(--muted)}.meter{height:13px;background:#e9f1f8;border-radius:999px;overflow:hidden}.meter span{display:block;height:100%;background:linear-gradient(90deg,var(--main),var(--sub));width:0%}.questList{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:12px}.quest{border:1px solid var(--line);border-radius:22px;padding:16px;background:#fff;cursor:pointer}.quest:hover{outline:3px solid #d9f5ff}.stars{color:#ffb703;font-weight:900;letter-spacing:1px}.tag{display:inline-block;background:#f0f7ff;border:1px solid #d8edff;border-radius:999px;padding:4px 9px;font-size:12px;font-weight:800;color:#43789a}.problem{font-size:20px;line-height:1.8;background:#fff;border:1px solid var(--line);border-radius:24px;padding:22px;min-height:150px}.answer{width:100%;font-size:18px;padding:15px 16px;border:2px solid #dbe9f5;border-radius:18px;margin:12px 0}.feedback{padding:14px;border-radius:18px;margin-top:10px;font-weight:800}.ok{background:#e8fff9;color:#087b6c}.ng{background:#fff0f0;color:#b22}.hint{background:#fff9e8;border:1px dashed #ffd166;color:#8a5b00;padding:14px;border-radius:18px;line-height:1.6}.blank{display:inline-block;min-width:120px;border-bottom:3px solid var(--main);background:#eff9ff;border-radius:8px;padding:0 8px;text-align:center}.choice{display:inline-flex;margin:6px;padding:10px 14px;background:#fff;border:2px solid #dbe9f5;border-radius:16px;font-weight:800;cursor:pointer}.choice:hover{border-color:var(--main)}details{background:#f8fbff;border:1px solid var(--line);border-radius:18px;padding:12px 16px;margin-top:10px}summary{font-weight:900;cursor:pointer}textarea{width:100%;min-height:90px;border:2px solid #dbe9f5;border-radius:18px;padding:14px;font-size:16px}.printGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}.pill{display:inline-block;padding:8px 12px;border-radius:999px;background:#eef8ff;margin:4px;font-weight:800}.small{font-size:13px}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 16px}@media(max-width:860px){.hero,.grid{grid-template-columns:1fr}.nav{position:static}.stats{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="hero">
+    <div class="panel"><span class="badge">🧪 Quest系 自学アプリ</span><h1>ChemQuest<br>酸・塩基・中和</h1><p class="lead">授業プリントの穴埋め、問題演習、レベル別Quest、間違い直し、振り返りまでを1ファイルで動かす試作版。</p><div class="row"><button class="btn primary" onclick="go('quest')">Questを始める</button><button class="btn ghost" onclick="go('print')">プリント穴埋め</button><button class="btn ghost" onclick="go('record')">学習記録</button></div></div>
+    <div class="panel"><h2>達成度</h2><div class="num" id="topRate">0%</div><div class="meter"><span id="topMeter"></span></div><p class="muted">正答・復習・振り返りを保存します。</p><div class="row"><button class="btn warn" onclick="exportCSV()">CSV出力</button><button class="btn danger" onclick="resetAll()">リセット</button></div></div>
+  </div>
+  <div class="grid">
+    <nav class="nav card" id="nav"></nav>
+    <main class="content">
+      <section id="home" class="section active"></section>
+      <section id="print" class="section"></section>
+      <section id="quest" class="section"></section>
+      <section id="mistakes" class="section"></section>
+      <section id="reflect" class="section"></section>
+      <section id="record" class="section"></section>
+    </main>
+  </div>
+</div>
+<script>
+const units={
+ acid:{label:'酸・塩基',desc:'定義・価数・強弱・電離度'}, ph:{label:'水素イオン濃度・pH',desc:'[H+]・[OH-]・水のイオン積・希釈'}, neutral:{label:'中和',desc:'中和反応式・量的関係'}, salt:{label:'塩・滴定',desc:'塩の分類・液性・器具・指示薬'}
+};
+const cloze=[
+{u:'acid',lv:1,q:'酸性とは、青色リトマス紙を（　）くする性質。',a:['赤','赤く'],h:'酸性は青→赤。'},
+{u:'acid',lv:1,q:'塩基性とは、赤色リトマス紙を（　）くする性質。',a:['青','青く'],h:'塩基性は赤→青。'},
+{u:'acid',lv:1,q:'酸は、マグネシウム・亜鉛・鉄などと反応して（　）を発生する。',a:['水素','H2','水素H2'],h:'金属＋酸→水素。'},
+{u:'acid',lv:1,q:'水溶液中でH+を生じる物質を（　）という。',a:['酸'],h:'アレニウスの定義。'},
+{u:'acid',lv:1,q:'水溶液中でOH-を生じる物質を（　）という。',a:['塩基'],h:'アレニウスの定義。'},
+{u:'acid',lv:2,q:'H+を他に与える物質を（　）という。',a:['酸'],h:'ブレンステッド・ローリーの定義。'},
+{u:'acid',lv:2,q:'H+を他から受け取る物質を（　）という。',a:['塩基'],h:'ブレンステッド・ローリーの定義。'},
+{u:'acid',lv:1,q:'酸の価数とは、H+になることのできる（　）原子の数。',a:['H','水素','水素H'],h:'酸の式中のH全部ではない。'},
+{u:'acid',lv:2,q:'HCl・CH3COOHは（　）価の酸。',a:['1','一','1価','一価'],h:'出せるH+は1個。'},
+{u:'acid',lv:2,q:'H2SO4・H2C2O4は（　）価の酸。',a:['2','二','2価','二価'],h:'出せるH+は2個。'},
+{u:'acid',lv:2,q:'NaOH・NH3は（　）価の塩基。',a:['1','一','1価','一価'],h:'OH-を1個生じる、またはH+を1個受け取る。'},
+{u:'acid',lv:2,q:'Ca(OH)2は（　）価の塩基。',a:['2','二','2価','二価'],h:'OH-を2個生じる。'},
+{u:'acid',lv:2,q:'溶けている酸・塩基のうち、電離している割合を（　）という。',a:['電離度','電離度α','α'],h:'αで表すことが多い。'},
+{u:'acid',lv:2,q:'水溶液中でほぼすべて電離する酸を（　）という。',a:['強酸'],h:'HCl, HNO3, H2SO4など。'},
+{u:'acid',lv:2,q:'水溶液中でごく一部しか電離しない酸を（　）という。',a:['弱酸'],h:'CH3COOHなど。'},
+{u:'acid',lv:2,q:'酸や塩基の強弱は、（　）の大小とは無関係。',a:['価数'],h:'2価だから強い、ではない。'},
+{u:'ph',lv:2,q:'25℃で水のイオン積Kw=[H+][OH-]=（　）。',a:['1.0×10^-14','1.0×10-14','10^-14','1.0*10^-14'],h:'25℃では一定。'},
+{u:'ph',lv:1,q:'中性の水溶液では[H+]=[OH-]=（　）mol/L。',a:['1.0×10^-7','1.0×10-7','10^-7','1.0*10^-7'],h:'pH=7。'},
+{u:'ph',lv:1,q:'[H+]=1.0×10^-3 mol/Lなら、pH=（　）。',a:['3'],h:'指数のマイナスを外す。'},
+{u:'ph',lv:2,q:'pHが1小さくなると、[H+]は（　）倍になる。',a:['10','10倍'],h:'pHは10倍刻み。'},
+{u:'neutral',lv:1,q:'酸と塩基が性質を打ち消し合う反応を（　）という。',a:['中和','中和反応'],h:'多くの場合、水と塩ができる。'},
+{u:'neutral',lv:1,q:'酸の陰イオンと塩基の陽イオンからなる化合物を（　）という。',a:['塩'],h:'えん。'},
+{u:'neutral',lv:2,q:'中和の量的関係は「酸の価数×酸の物質量＝（　）×塩基の物質量」。',a:['塩基の価数','塩基価数'],h:'H+とOH-の物質量を合わせる。'},
+{u:'salt',lv:2,q:'NaClのように酸のHも塩基のOHも残っていない塩を（　）という。',a:['正塩'],h:'液性の名前ではない。'},
+{u:'salt',lv:3,q:'NaHCO3のように酸のHが残っている塩を（　）という。',a:['酸性塩'],h:'水溶液が必ず酸性とは限らない。'},
+{u:'salt',lv:3,q:'MgCl(OH)のように塩基のOHが残っている塩を（　）という。',a:['塩基性塩'],h:'分類名と液性は別。'},
+{u:'salt',lv:3,q:'中和滴定で一定体積の水溶液を正確にとる器具は（　）。',a:['ホールピペット'],h:'共洗いする器具。'},
+{u:'salt',lv:3,q:'中和滴定で滴下量を読む器具は（　）。',a:['ビュレット'],h:'目盛りで体積差を読む。'}
+];
+const problems=[
+{id:'13-1-1',u:'acid',lv:2,type:'input',q:'塩化水素 HCl の水溶液中における電離を反応式で示せ。',a:['HCl→H+＋Cl-','HCl→H＋＋Cl－','HCl=H+＋Cl-','HCl -> H+ + Cl-'],ex:'強酸なので HCl → H+ + Cl- と考える。'},
+{id:'13-1-2',u:'acid',lv:2,type:'input',q:'酢酸 CH3COOH の水溶液中における電離を反応式で示せ。',a:['CH3COOH⇄CH3COO-＋H+','CH3COOH⇄CH3COO－＋H＋','CH3COOH→CH3COO-＋H+'],ex:'酢酸は弱酸なので可逆反応で表すのが基本。'},
+{id:'13-1-3',u:'acid',lv:3,type:'input',q:'硫酸 H2SO4 の電離を、2段階をまとめて反応式で示せ。',a:['H2SO4→2H+＋SO4^2-','H2SO4→2H＋＋SO42－','H2SO4→2H+＋SO42-'],ex:'2価の酸なので H+ を2個出す。'},
+{id:'13-1-4',u:'acid',lv:3,type:'input',q:'水酸化カルシウム Ca(OH)2 の電離を反応式で示せ。',a:['Ca(OH)2→Ca2+＋2OH-','Ca(OH)2→Ca2＋＋2OH－'],ex:'2価の塩基なので OH- を2個出す。'},
+{id:'13-2-1',u:'ph',lv:2,type:'input',q:'0.10mol/Lの塩酸（電離度1）の[H+]を求めよ。',a:['0.10mol/L','0.10','0.1mol/L','0.1'],ex:'[H+]=濃度×価数×電離度=0.10×1×1。'},
+{id:'13-2-2',u:'ph',lv:3,type:'input',q:'0.10mol/Lの酢酸水溶液（電離度0.010）の[H+]を求めよ。',a:['1.0×10^-3mol/L','1.0×10-3mol/L','0.001mol/L','1.0*10^-3'],ex:'[H+]=0.10×0.010=1.0×10^-3 mol/L。'},
+{id:'13-3-1',u:'ph',lv:2,type:'input',q:'0.10mol/LのNaOH水溶液（電離度1）の[OH-]を求めよ。',a:['0.10mol/L','0.10','0.1mol/L','0.1'],ex:'[OH-]=0.10×1×1。'},
+{id:'13-3-2',u:'ph',lv:3,type:'input',q:'0.050mol/LのBa(OH)2水溶液（電離度1）の[OH-]を求めよ。',a:['0.10mol/L','0.10','0.1mol/L','0.1'],ex:'Ba(OH)2はOH-を2個出すので 0.050×2=0.10。'},
+{id:'13-3-3',u:'ph',lv:3,type:'input',q:'0.010mol/Lのアンモニア水（電離度0.010）の[OH-]を求めよ。',a:['1.0×10^-4mol/L','1.0×10-4mol/L','0.0001mol/L','1.0*10^-4'],ex:'[OH-]=0.010×0.010=1.0×10^-4 mol/L。'},
+{id:'13-4-1',u:'ph',lv:1,type:'input',q:'[H+]=1.0×10^-4 mol/Lのとき、pHはいくらか。',a:['4'],ex:'[H+]=10^-4 なので pH=4。'},
+{id:'13-4-2',u:'ph',lv:1,type:'input',q:'[H+]=1.0×10^-12 mol/Lのとき、pHはいくらか。',a:['12'],ex:'[H+]=10^-12 なので pH=12。'},
+{id:'13-4-3',u:'ph',lv:3,type:'input',q:'[OH-]=1.0×10^-4 mol/Lのとき、[H+]は何mol/Lか。',a:['1.0×10^-10mol/L','1.0×10-10mol/L','10^-10mol/L'],ex:'[H+][OH-]=1.0×10^-14より、[H+]=10^-14/10^-4=10^-10。'},
+{id:'13-4-4',u:'ph',lv:3,type:'input',q:'[OH-]=1.0×10^-12 mol/Lのとき、[H+]は何mol/Lか。',a:['1.0×10^-2mol/L','1.0×10-2mol/L','0.01mol/L'],ex:'[H+]=10^-14/10^-12=10^-2。'},
+{id:'13-4-5',u:'ph',lv:1,type:'input',q:'pHが2のときの[H+]は何mol/Lか。',a:['1.0×10^-2mol/L','1.0×10-2mol/L','0.01mol/L'],ex:'pH=2なら[H+]=10^-2 mol/L。'},
+{id:'13-4-6',u:'ph',lv:1,type:'input',q:'pHが1小さくなると、[H+]は何倍になるか。',a:['10倍','10'],ex:'pHが1下がると酸性は10倍強くなる。'},
+{id:'13-4-7',u:'ph',lv:1,type:'input',q:'pH=2の塩酸の[H+]は何mol/Lか。',a:['1.0×10^-2mol/L','1.0×10-2mol/L','0.01mol/L'],ex:'pHから直接 [H+]=10^-2。'},
+{id:'13-4-8',u:'ph',lv:1,type:'input',q:'pH=7の水の[OH-]は何mol/Lか。',a:['1.0×10^-7mol/L','1.0×10-7mol/L','10^-7mol/L'],ex:'中性なので [H+]=[OH-]=10^-7。'},
+{id:'13-4-9',u:'ph',lv:3,type:'input',q:'pH=11のNaOH水溶液を水で10倍に薄めると、pHはいくらになるか。',a:['10'],ex:'塩基性溶液を10倍希釈すると、pHは中性に1近づく。11→10。'},
+{id:'13-4-10',u:'ph',lv:4,type:'input',q:'0.050mol/Lの酢酸水溶液（電離度0.020）のpHはいくらか。',a:['3'],ex:'[H+]=0.050×0.020=0.001=10^-3。よってpH=3。'},
+{id:'14-1-1',u:'neutral',lv:2,type:'input',q:'HCl と NaOH の中和反応式を示せ。',a:['HCl＋NaOH→NaCl＋H2O','HCl+NaOH→NaCl+H2O'],ex:'1価同士なので係数は1:1。'},
+{id:'14-1-2',u:'neutral',lv:3,type:'input',q:'HCl と Ca(OH)2 の中和反応式を示せ。',a:['2HCl＋Ca(OH)2→CaCl2＋2H2O','2HCl+Ca(OH)2→CaCl2+2H2O'],ex:'Ca(OH)2は2価の塩基なのでHClが2必要。'},
+{id:'14-1-3',u:'neutral',lv:2,type:'input',q:'CH3COOH と NaOH の中和反応式を示せ。',a:['CH3COOH＋NaOH→CH3COONa＋H2O','CH3COOH+NaOH→CH3COONa+H2O'],ex:'酢酸のH+とNaOHのOH-で水ができる。'},
+{id:'14-1-4',u:'neutral',lv:4,type:'input',q:'シュウ酸 (COOH)2 と KOH の中和反応式を示せ。',a:['(COOH)2＋2KOH→(COOK)2＋2H2O','(COOH)2+2KOH→(COOK)2+2H2O'],ex:'シュウ酸は2価の酸。KOHが2必要。'},
+{id:'14-1-5',u:'neutral',lv:3,type:'input',q:'H2SO4 と NaOH の中和反応式を示せ。',a:['H2SO4＋2NaOH→Na2SO4＋2H2O','H2SO4+2NaOH→Na2SO4+2H2O'],ex:'硫酸は2価の酸。NaOHが2必要。'},
+{id:'14-1-6',u:'neutral',lv:3,type:'input',q:'H2SO4 と Ca(OH)2 の中和反応式を示せ。',a:['H2SO4＋Ca(OH)2→CaSO4＋2H2O','H2SO4+Ca(OH)2→CaSO4+2H2O'],ex:'2価同士なので1:1で中和。'},
+{id:'14-1-7',u:'neutral',lv:2,type:'input',q:'HCl と NH3 の中和反応式を示せ。',a:['HCl＋NH3→NH4Cl','HCl+NH3→NH4Cl'],ex:'水を生じない中和の例。'},
+{id:'14-2-1',u:'neutral',lv:2,type:'input',q:'1molのHClを中和するのに必要なKOHは何molか。',a:['1mol','1'],ex:'1価同士なので1mol必要。'},
+{id:'14-2-2',u:'neutral',lv:3,type:'input',q:'0.1molのHClを中和するのに必要なCa(OH)2は何molか。',a:['0.05mol','0.05'],ex:'1×0.1=2×x より x=0.05mol。'},
+{id:'14-2-3',u:'neutral',lv:4,type:'input',q:'3molのBa(OH)2を中和するのに必要なH3PO4は何molか。',a:['2mol','2'],ex:'2×3=3×x より x=2mol。'},
+{id:'14-2-4',u:'neutral',lv:4,type:'input',q:'0.3molのH2SO4を中和するのに必要なNaOHは何gか。NaOH=40。',a:['24g','24'],ex:'NaOHは0.6mol必要。40×0.6=24g。'},
+{id:'14-2-5',u:'neutral',lv:4,type:'input',q:'標準状態で11.2LのNH3を中和するのに必要なH2SO4は何molか。',a:['0.25mol','0.25'],ex:'NH3は11.2/22.4=0.5mol。硫酸は2価なので0.25mol。'},
+{id:'14-2-6',u:'neutral',lv:4,type:'input',q:'0.30mol/LのH2SO4 10mLを中和するのに必要な0.20mol/LのNaOH水溶液は何mLか。',a:['30mL','30'],ex:'2×0.30×0.010=1×0.20×V。V=0.030L=30mL。'},
+{id:'14-2-7',u:'neutral',lv:4,type:'input',q:'8.0gのNaOHを中和するのに必要な2.0mol/LのH2SO4水溶液は何mLか。NaOH=40。',a:['50mL','50'],ex:'NaOHは8.0/40=0.20mol。H2SO4は0.10mol必要。V=0.10/2.0=0.050L。'}
+];
+let state=JSON.parse(localStorage.getItem('chemquest_acid_state')||'{"done":{},"wrong":{},"reflect":[]}');
+let currentList=[],currentIndex=0,currentMode='problem',hintOpen=0;
+function save(){localStorage.setItem('chemquest_acid_state',JSON.stringify(state));renderHeader();}
+function norm(s){return String(s||'').replace(/[\s　]/g,'').replace(/－/g,'-').replace(/＋/g,'+').replace(/×/g,'*').replace(/→/g,'->').replace(/⇄|↔/g,'<->').replace(/mol\/L/g,'').toLowerCase();}
+function ok(ans, arr){let n=norm(ans); return arr.some(a=> n===norm(a) || n.includes(norm(a)) && norm(a).length>1);}
+function stars(n){return '★★★★★'.slice(0,n)+'☆☆☆☆☆'.slice(0,5-n)}
+function go(id){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.id===id)); if(id==='record')renderRecord(); if(id==='mistakes')renderMistakes();}
+function renderNav(){let items=[['home','ホーム'],['print','授業プリント'],['quest','問題演習Quest'],['mistakes','間違えた問題'],['reflect','振り返り'],['record','学習記録']]; nav.innerHTML=items.map(x=>`<button data-id="${x[0]}" onclick="go('${x[0]}')">${x[1]}</button>`).join('');nav.querySelector('[data-id=home]').classList.add('active');}
+function renderHeader(){let total=cloze.length+problems.length, done=Object.keys(state.done).length, rate=Math.round(done/total*100);topRate.textContent=rate+'%';topMeter.style.width=rate+'%';}
+function renderHome(){home.innerHTML=`<div class="card"><h2>今日のミッション</h2><div class="questList"><div class="quest" onclick="startCloze('all')"><b>プリント穴埋め10問</b><p class="muted">授業プリントの語句確認</p><span class="tag">基礎</span></div><div class="quest" onclick="startProblems('all')"><b>全問題ランダム</b><p class="muted">13・14の演習をすべて対象</p><span class="tag">演習</span></div><div class="quest" onclick="startProblems('neutral')"><b>中和だけ集中</b><p class="muted">反応式・量的関係</p><span class="tag">苦手対策</span></div></div></div><div class="card"><h2>単元メーター</h2>${Object.entries(units).map(([k,u])=>unitMeter(k,u)).join('')}</div>`;}
+function unitMeter(k,u){let all=[...cloze,...problems].filter(x=>x.u===k), d=all.filter(x=>state.done[x.id||'c'+cloze.indexOf(x)]).length, r=all.length?Math.round(d/all.length*100):0; return `<p><b>${u.label}</b> <span class="muted">${u.desc}</span> ${r}%</p><div class="meter"><span style="width:${r}%"></span></div>`}
+function renderPrint(){print.innerHTML=`<div class="card"><h2>授業プリント 穴埋め</h2><p class="muted">プリントの空欄を自学用に再構成。選択式ではなく入力でも練習可能。</p><div class="printGrid">${Object.entries(units).map(([k,u])=>`<div class="quest" onclick="startCloze('${k}')"><div class="stars">${stars(Math.min(5,Math.max(1,Math.round(cloze.filter(x=>x.u===k).reduce((a,b)=>a+b.lv,0)/(cloze.filter(x=>x.u===k).length||1)))))} </div><h3>${u.label}</h3><p class="muted">${cloze.filter(x=>x.u===k).length}問</p></div>`).join('')}<div class="quest" onclick="startCloze('all')"><h3>全部ランダム</h3><p class="muted">${cloze.length}問</p></div></div><div id="play"></div></div>`;}
+function renderQuest(){quest.innerHTML=`<div class="card"><h2>問題演習Quest</h2><p class="muted">13「酸と塩基・水素イオン濃度」19題、14「中和」14題を収録。</p><div class="tabs"><button class="btn primary" onclick="startProblems('all')">全部</button>${Object.entries(units).map(([k,u])=>`<button class="btn ghost" onclick="startProblems('${k}')">${u.label}</button>`).join('')}</div><div id="play2"></div></div>`;}
+function startCloze(unit){currentMode='cloze'; currentList=cloze.map((x,i)=>({...x,id:'c'+i})).filter(x=>unit==='all'||x.u===unit).sort(()=>Math.random()-.5); currentIndex=0; hintOpen=0; showQ(); go('print');}
+function startProblems(unit){currentMode='problem'; currentList=problems.filter(x=>unit==='all'||x.u===unit).sort(()=>Math.random()-.5); currentIndex=0; hintOpen=0; showQ(); go('quest');}
+function showQ(){let box=currentMode==='cloze'?document.getElementById('play'):document.getElementById('play2'); if(!box)return; let p=currentList[currentIndex]; if(!p){box.innerHTML='<div class="card"><h2>Quest Clear!</h2><button class="btn primary" onclick="go(\'reflect\')">振り返りへ</button></div>';renderHome();return;} box.innerHTML=`<div class="card"><div class="row"><span class="tag">${units[p.u].label}</span><span class="stars">${stars(p.lv)}</span><span class="muted">${currentIndex+1}/${currentList.length}</span></div><div class="problem">${p.q.replace('（　）','<span class="blank">？</span>')}</div><input class="answer" id="ans" placeholder="答えを入力"><div class="row"><button class="btn primary" onclick="checkAns()">判定</button><button class="btn ghost" onclick="showHint()">ヒント</button><button class="btn ghost" onclick="skipQ()">次へ</button></div><div id="hint"></div><div id="fb"></div></div>`; setTimeout(()=>ans.focus(),50); ans.onkeydown=e=>{if(e.key==='Enter')checkAns()};}
+function showHint(){let p=currentList[currentIndex]; hint.innerHTML=`<div class="hint">${p.h||'価数・濃度・電離度のどれを使うか確認。'}</div>`;}
+function checkAns(){let p=currentList[currentIndex], val=ans.value; let good=ok(val,p.a); if(good){state.done[p.id]=true; delete state.wrong[p.id]; fb.innerHTML=`<div class="feedback ok">正解！ ${p.ex?'<details><summary>解説</summary>'+p.ex+'</details>':''}</div>`;}else{state.wrong[p.id]=p.q; fb.innerHTML=`<div class="feedback ng">もう一度。<details open><summary>ヒント・解説</summary>${p.h||''}<br>${p.ex||''}<br><b>答え例：</b>${p.a[0]}</details></div>`;} save();}
+function skipQ(){currentIndex++; showQ();}
+function renderMistakes(){let ids=Object.keys(state.wrong); mistakes.innerHTML=`<div class="card"><h2>間違えた問題</h2>${ids.length?'<div class="questList">'+ids.map(id=>`<div class="quest"><b>${id}</b><p>${state.wrong[id]}</p></div>`).join('')+'</div><button class="btn primary" onclick="startWrong()">間違いだけ解く</button>':'<p class="muted">まだありません。</p>'}</div>`;}
+function startWrong(){let ids=Object.keys(state.wrong); currentMode='problem'; currentList=problems.concat(cloze.map((x,i)=>({...x,id:'c'+i}))).filter(x=>ids.includes(x.id)); currentIndex=0; showQ(); go('quest');}
+function renderReflect(){reflect.innerHTML=`<div class="card"><h2>振り返り</h2><p class="muted">授業後・家庭学習後に1分で記録。</p><label>今日の理解度</label><div class="row"><button class="choice" onclick="setLevel('まだ不安')">まだ不安</button><button class="choice" onclick="setLevel('普通')">普通</button><button class="choice" onclick="setLevel('説明できる')">説明できる</button></div><input type="hidden" id="rLevel" value="普通"><p>今日わかったこと</p><textarea id="rGood"></textarea><p>まだわからないこと</p><textarea id="rBad"></textarea><button class="btn primary" onclick="saveReflect()">保存</button><div id="rMsg"></div></div>`;}
+function setLevel(v){rLevel.value=v; document.querySelectorAll('.choice').forEach(c=>c.style.borderColor=c.textContent===v?'#4aa3df':'#dbe9f5')}
+function saveReflect(){state.reflect.push({date:new Date().toLocaleString(),level:rLevel.value,good:rGood.value,bad:rBad.value}); save(); rMsg.innerHTML='<div class="feedback ok">保存しました。</div>';}
+function renderRecord(){let total=cloze.length+problems.length, done=Object.keys(state.done).length, wrong=Object.keys(state.wrong).length;record.innerHTML=`<div class="card"><h2>学習記録</h2><div class="stats"><div class="stat"><div class="num">${done}</div><div>完了</div></div><div class="stat"><div class="num">${total}</div><div>総問題</div></div><div class="stat"><div class="num">${wrong}</div><div>苦手</div></div><div class="stat"><div class="num">${state.reflect.length}</div><div>振り返り</div></div></div><h3>振り返り履歴</h3>${state.reflect.slice().reverse().map(r=>`<details><summary>${r.date}｜${r.level}</summary><b>わかったこと</b><p>${esc(r.good)}</p><b>まだわからないこと</b><p>${esc(r.bad)}</p></details>`).join('')||'<p class="muted">まだありません。</p>'}</div>`;}
+function esc(s){return String(s||'').replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]))}
+function exportCSV(){let rows=[['date','level','good','bad'],...state.reflect.map(r=>[r.date,r.level,r.good,r.bad]),[],['done_ids',Object.keys(state.done).join(' ')],['wrong_ids',Object.keys(state.wrong).join(' ')]]; let csv=rows.map(r=>r.map(v=>'"'+String(v||'').replace(/"/g,'""')+'"').join(',')).join('\n'); let a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'})); a.download='chemquest_record.csv'; a.click();}
+function resetAll(){if(confirm('学習記録をリセットしますか？')){state={done:{},wrong:{},reflect:[]};save();renderHome();renderRecord();}}
+renderNav();renderHeader();renderHome();renderPrint();renderQuest();renderReflect();
+</script>
+</body>
+</html>
